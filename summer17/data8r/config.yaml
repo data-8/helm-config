@@ -5,6 +5,20 @@ hub:
    db:
      type: postgres
 
+ingress:
+  enabled: true
+  host: hub.data8r.omgwtf.in
+  https:
+    enabled: true
+    type: "kube-lego"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+
+proxy:
+  service:
+    type: ClusterIP
+
 singleuser:
    storage:
      type: static

@@ -1,0 +1,10 @@
+nginx-ingress:
+  controller:
+    image:
+      tag: 0.9.0-beta.7
+
+kube-lego:
+  config:
+    LEGO_EMAIL: ds-instr@berkeley.edu
+    LEGO_URL: https://acme-v01.api.letsencrypt.org/directory
+  
