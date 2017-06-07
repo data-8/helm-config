@@ -25,7 +25,7 @@ spec:
   selector:
     matchLabels:
       type: nfs
-      class: data8-r
+      class: data8r
   accessModes:
     - ReadWriteMany
   resources:
