@@ -11,7 +11,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.240.0.7
-    path: "/export/homes/"
+    path: "/export/homes/data8r/"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
