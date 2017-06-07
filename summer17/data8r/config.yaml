@@ -23,7 +23,7 @@ singleuser:
    storage:
      type: static
      static:
-         pvcName: nfs
+         pvcName: data8r-nfs
          subPath: "students/{username}"
    image:
      name: berkeleydsep/singleuser-data8
