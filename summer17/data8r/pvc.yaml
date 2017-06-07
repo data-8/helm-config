@@ -18,6 +18,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: data8r-nfs
+  namespace: data8r
   annotations:
     volume.beta.kubernetes.io/storage-class: ""
 spec:
