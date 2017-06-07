@@ -1,0 +1,20 @@
+hub:
+   image:
+      name: jupyterhub/k8s-hub
+      tag: v7b0838e
+   db:
+     type: postgres
+
+singleuser:
+   storage:
+     type: static
+     static:
+         pvcName: nfs
+         subPath: "students/{username}"
+   image:
+     name: berkeleydsep/singleuser-data8
+     tag: v0.1
+
+auth:
+  dummy:
+    password: watwatwatwat
