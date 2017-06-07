@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs
+  name: data8r-nfs
   labels:
-    type: nfs
+     type: nfs
+     class: data8r
 spec:
   capacity:
     storage: 10Gi # doesn't actually matter
@@ -23,6 +24,7 @@ spec:
   selector:
     matchLabels:
       type: nfs
+      class: data8-r
   accessModes:
     - ReadWriteMany
   resources:
