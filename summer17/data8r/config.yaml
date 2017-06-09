@@ -7,7 +7,7 @@ hub:
 
 ingress:
   enabled: true
-  host: hub.data8r.omgwtf.in
+  host: data8r.datahub.berkeley.edu
   https:
     enabled: true
     type: "kube-lego"
@@ -27,7 +27,7 @@ singleuser:
          subPath: "students/{username}"
    image:
      name: berkeleydsep/singleuser-data8
-     tag: v0.2
+     tag: b9de0b1
 
 auth:
   type: google
