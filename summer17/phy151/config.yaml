@@ -1,0 +1,33 @@
+hub:
+   image:
+      name: jupyterhub/k8s-hub
+      tag: v7b0838e
+   db:
+     type: postgres
+
+ingress:
+  enabled: true
+  host: phy151.aztest.omgwtf.in
+  https:
+    enabled: true
+    type: "kube-lego"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+
+
+proxy:
+  service:
+    type: ClusterIP
+
+singleuser:
+   storage:
+     type: static
+     static:
+         pvcName: phy151-nfs
+         subPath: "students/{username}"
+   image:
+     name: berkeleydsep/singleuser-data8
+     tag: f20d39a
+
+auth:
+  type: google

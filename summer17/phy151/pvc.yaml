@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: phy151-nfs
+  labels:
+     type: nfs
+     class: phy151
+spec:
+  capacity:
+    storage: 10Gi # doesn't actually matter
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.240.0.7
+    path: "/export/homes/phy151/"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: phy151-nfs
+  namespace: phy151
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
+spec:
+  selector:
+    matchLabels:
+      type: nfs
+      class: phy151
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi # doesn't actually matter
