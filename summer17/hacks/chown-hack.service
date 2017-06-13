@@ -1,0 +1,13 @@
+[Unit]
+Description=Chown user home directories to 1000:1000 when they are first created
+
+[Service]
+ExecStart=/usr/local/sbin/chown-hack.bash
+Restart=Always
+ReadWritePaths=/export/homes
+ReadOnlyPaths=/
+WorkingDirectory=/export/homes
+CapabilityBoundingSet=CAP_DAC_OVERRIDE CAP_FOWNER CAP_CHOWN
+
+[Install]
+WantedBy=multi-user.target
