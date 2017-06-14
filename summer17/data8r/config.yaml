@@ -27,7 +27,7 @@ singleuser:
          subPath: "students/{username}"
    image:
      name: berkeleydsep/singleuser-data8
-     tag: 84a9a9f
+     tag: f20d39a
    extraEnv:
      ALLOWED_GITHUB_ACCOUNTS: "data-8:data-8r"
 
