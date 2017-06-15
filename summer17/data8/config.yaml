@@ -30,4 +30,4 @@ singleuser:
      tag: f20d39a
 
 auth:
-  type: dummy
+  type: google
