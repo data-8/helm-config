@@ -7,7 +7,7 @@ hub:
 
 ingress:
   enabled: true
-  host: data8.haas.omgwtf.in
+  host: data8.haas.berkeley.edu
   https:
     enabled: true
     type: "kube-lego"
