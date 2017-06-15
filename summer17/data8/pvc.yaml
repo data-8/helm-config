@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data8-nfs
+  labels:
+     type: nfs
+     class: data8
+spec:
+  capacity:
+    storage: 10Gi # doesn't actually matter
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.1.1.45
+    path: "/bulk/kube/"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: data8-nfs
+  namespace: data8
+  annotations:
+    volume.beta.kubernetes.io/storage-class: ""
+spec:
+  selector:
+    matchLabels:
+      type: nfs
+      class: data8
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi # doesn't actually matter

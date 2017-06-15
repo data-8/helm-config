@@ -3,7 +3,7 @@ hub:
       name: jupyterhub/k8s-hub
       tag: v7b0838e
    db:
-     type: postgres
+     type: sqlite-memory
 
 ingress:
   enabled: true
@@ -21,7 +21,7 @@ proxy:
 
 singleuser:
    storage:
-     type: none
+     type: static
      static:
          pvcName: data8-nfs
          subPath: "students/{username}"
