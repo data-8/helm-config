@@ -33,3 +33,11 @@ singleuser:
 
 auth:
   type: google
+
+admin:
+  users:
+    # infrastructure
+    - 'rylo'
+    - 'yuvipanda'
+    # instructor
+    - 'henrym'
