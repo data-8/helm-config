@@ -31,3 +31,13 @@ singleuser:
 
 auth:
   type: google
+
+admin:
+  users:
+    # infrastructure
+    - 'rylo'
+    - 'yuvipanda'
+    - 'gunjan_baid'
+    # instructor
+    - 'henrym'
+    - 'samlau95'
