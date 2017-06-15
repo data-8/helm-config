@@ -1,0 +1,27 @@
+# A simple bonnie++ setup that spins up 100 instances hitting NFS
+# We mostly just wanna see if NFS crashes
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bonnie-nfs
+spec:
+  completions: 100
+  parallelism: 100
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - args:
+          - /bin/bash
+          - -c
+          - "apt-get update && apt-get install --yes bonnie++ && mkdir -v /mnt/$(hostname) && bonnie++ -d /mnt/$(hostname)  -r 2048 -u 1000:1000"
+        image: ubuntu:17.04
+        name: bonnie
+        volumeMounts:
+        - mountPath: /mnt
+          name: nfs
+          subPath: bonnie
+      volumes:
+      - name: nfs
+        persistentVolumeClaim:
+          claimName: data8r-nfs
