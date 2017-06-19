@@ -1,7 +1,7 @@
 hub:
    image:
       name: jupyterhub/k8s-hub
-      tag: v7b0838e
+      tag: ve9661be 
    db:
      type: postgres
 
