@@ -1,6 +1,22 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
+  name: data8-hubdb-nfs
+  labels:
+     type: nfs
+     kind: hubdb
+spec:
+  capacity:
+    storage: 10Gi # doesn't actually matter
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.1.1.45
+    path: "/bulk/kube/"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
   name: data8-nfs
   labels:
      type: nfs
