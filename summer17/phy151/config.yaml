@@ -1,13 +1,21 @@
 hub:
    image:
       name: jupyterhub/k8s-hub
-      tag: v7b0838e
+      tag: ve9661be
    db:
-     type: postgres
+     pvc:
+       # HACK! I can't create anything not under students tho
+       subPath: students/PHY151/hubdb
+       selector:
+         matchLabels:
+           type: nfs
+           kind: hubdb
+       accessModes:
+         - ReadWriteMany
 
 ingress:
   enabled: true
-  host: phy151.aztest.omgwtf.in
+  host: phy151.haas.berkeley.edu
   https:
     enabled: true
     type: "kube-lego"
@@ -18,16 +26,27 @@ ingress:
 proxy:
   service:
     type: ClusterIP
+  image:
+     name: jupyterhub/k8s-proxy
+     tag: v0.3.1
+  cmd: null
+
 
 singleuser:
    storage:
      type: static
      static:
          pvcName: phy151-nfs
-         subPath: "students/{username}"
+         subPath: "students/PHY151/{username}"
    image:
      name: berkeleydsep/singleuser-data8
      tag: f20d39a
 
 auth:
   type: google
+
+admin:
+  users:
+    # infrastructure
+    - 'rylo'
+    - 'yuvipanda'
