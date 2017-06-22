@@ -3,7 +3,17 @@ hub:
       name: jupyterhub/k8s-hub
       tag: ve9661be 
    db:
-     type: postgres
+     type: sqlite-pvc
+     pvc:
+       # HACK! I can't create anything not under students tho
+       selector:
+         matchLabels:
+           type: nfs
+           kind: hubdb
+           class: data8r
+       accessModes:
+         - ReadWriteMany
+
 
 ingress:
   enabled: true

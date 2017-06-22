@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: data8r-nfs
+  name: data8r-hubdb
   labels:
      type: nfs
+     kind: hubdb
      class: data8r
 spec:
   capacity:
@@ -11,14 +12,31 @@ spec:
   accessModes:
     - ReadWriteMany
   nfs:
-    server: 10.240.0.7
+    server: 172.16.0.12
+    path: "/export/homes/hubdb/data8r/"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data8r-nfs
+  labels:
+     type: nfs
+     class: data8r
+     kind: homes
+spec:
+  capacity:
+    storage: 10Gi # doesn't actually matter
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 172.16.0.12
     path: "/export/homes/data8r/"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: data8r-nfs
-  namespace: data8r
+  namespace: data8r-prod
   annotations:
     volume.beta.kubernetes.io/storage-class: ""
 spec:
@@ -26,6 +44,7 @@ spec:
     matchLabels:
       type: nfs
       class: data8r
+      kind: homes
   accessModes:
     - ReadWriteMany
   resources:
