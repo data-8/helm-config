@@ -41,6 +41,8 @@ singleuser:
    image:
      name: berkeleydsep/singleuser-data8
      tag: e306f80
+   extraEnv:
+     ALLOWED_GITHUB_ACCOUNTS: "data-8:ds-modules"
 
 auth:
   type: google
