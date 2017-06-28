@@ -40,7 +40,7 @@ singleuser:
          subPath: "students/{username}"
    image:
      name: berkeleydsep/singleuser-data8
-     tag: f20d39a
+     tag: e306f80
 
 auth:
   type: google
