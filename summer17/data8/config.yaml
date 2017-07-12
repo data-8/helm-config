@@ -42,7 +42,7 @@ singleuser:
      name: berkeleydsep/singleuser-data8
      tag: d8d64a4
    extraEnv:
-     ALLOWED_GITHUB_ACCOUNTS: "data-8:ds-modules"
+     ALLOWED_GITHUB_ACCOUNTS: "data-8:ds-modules:bccp"
 
 auth:
   type: google
