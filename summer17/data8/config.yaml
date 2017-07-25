@@ -40,7 +40,7 @@ singleuser:
          subPath: "students/{username}"
    image:
      name: berkeleydsep/singleuser-data8
-     tag: d8d64a4
+     tag: cd66b2c
    extraEnv:
      ALLOWED_GITHUB_ACCOUNTS: "data-8:ds-modules:bccp"
 
