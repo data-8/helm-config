@@ -1,0 +1,17 @@
+hub:
+  cookieSecret: c288ac5fb6b6e857bb2a2f37d3bb7cf8cd6487fe4d047ad5e01cb8130e6a66df
+  db:
+    type: sqlite-memory
+  extraConfig: import os; c.Proxy.should_start = False; c.JupyterHub.hub_connect_ip = os.environ['HUB_SERVICE_HOST'];
+
+proxy:
+  secretToken: 5f15d8bc5847af8da3080465cd50946113f8b91bbbdd7a4d3ab9c3131ba04e31
+
+singleuser:
+  memory:
+    guarantee: 1G
+  image:
+    name: berkeleydsep/singleuser-data8
+    tag: cd66b2c
+  extraEnv:
+    ALLOWED_GITHUB_ACCOUNTS: "data-8:ds-modules:bccp"
