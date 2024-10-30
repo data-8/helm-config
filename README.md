@@ -19,3 +19,5 @@ $ ssh -N -L 6443:10.1.1.230:6443 doc-10.haas.berkeley.edu
  
 $ helm upgrade data8 ./helm-chart/jupyterhub -f helm-config/summer17/data8/config.yaml -f helm-config-private/summer17/data8/secret.yaml
 ```
+
+When this repository was archived there was an open issue by Yuvi Panda to set memory limits and guarantees for all courses. The current guarantee is implictly 1G. 
